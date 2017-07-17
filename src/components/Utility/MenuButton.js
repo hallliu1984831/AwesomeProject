@@ -10,10 +10,10 @@ import {
 
 export default class MenuButton extends Component {
   static propTyes = {
-    renderIcon: React.PropTypes.number.isRequired,  // 图片,加入.isRequired即为比填项
-    showText: React.PropTypes.string,  // 显示标题\文字
+    renderIcon: React.PropTypes.number.isRequired,
+    showText: React.PropTypes.string,  // show title
     tag: React.PropTypes.string,  // Tag
-    onClick: React.PropTypes.func  // 回调函数
+    onClick: React.PropTypes.func  // call back function
   };
   constructor(props) {
     super(props);
@@ -38,8 +38,8 @@ export default class MenuButton extends Component {
 
 const styles = StyleSheet.create({
     iconImg: {
-        width: 68,
-        height: 68,
+        width: 50,
+        height: 50,
         marginBottom: 2
     }
 })

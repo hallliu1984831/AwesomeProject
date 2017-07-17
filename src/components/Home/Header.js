@@ -15,11 +15,10 @@ export default class Header extends Component {
             <Image source={require('../../images/header/icon_search.png')} style={styles.searchIcon}/>
             <TextInput
                 keyboardType='web-search'
-                placeholder='search'
+                placeholder='搜索商品或品牌'
                 style={styles.inputText}/>
-            <Image source={require('../../images/header/icon_voice.png')} style={styles.voiceIcon}/>
         </View>
-        <Image source={require('../../images/header/icon_qr.png')} style={styles.scanIcon}/>
+        <Image source={require('../../images/tabs/cart.png')} style={styles.scanIcon}/>
       </View>
     )
   }
@@ -32,7 +31,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingTop: Platform.OS === 'ios' ? 20 : 0,   // 处理iOS状态栏
     height: Platform.OS === 'ios' ? 68 : 68,   // 处理iOS状态栏
-    backgroundColor: '#d74047',
+    backgroundColor: '#FFF',
     alignItems: 'center'
   },
   logo: {
@@ -45,7 +44,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       flex: 1,  // 类似于android中的layout_weight,设置为1即自动拉伸填充
       borderRadius: 5,  // 设置圆角边
-      backgroundColor: 'white',
+      backgroundColor: '#ecf0f1',
       alignItems: 'center',
       marginLeft: 8,
       marginRight: 12

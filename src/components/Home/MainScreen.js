@@ -6,7 +6,8 @@ import {
   Text,
   RefreshControl,
   Alert,
-  ScrollView
+  ScrollView,
+  ListView
 } from 'react-native';
 
 import ViewPager from 'react-native-viewpager';
@@ -28,6 +29,7 @@ export default class MainScreen extends Component {
     this.state = {
       dataSource: dataSource.cloneWithPages(BANNER_IMGS)
     }
+
   }
   _renderPage(data, pageID) {
     return (
@@ -39,7 +41,9 @@ export default class MainScreen extends Component {
   _onMenuClick(title, tag) {
     Alert.alert('Click:' + title + " Tag:" + tag);
   }
+
   render() {
+
     return (
       <View>
             <View style={{height:130}}>
@@ -49,6 +53,7 @@ export default class MainScreen extends Component {
                 isLoop={true}
                 autoPlay={true}/>
             </View>
+
             <View style={styles.menuView}>
               <MenuButton renderIcon={require('../../images/home_icons/wdgz.png')}
                           showText={'My Concern'} tag={'wdgz'}
@@ -89,7 +94,7 @@ const styles = StyleSheet.create(
       marginTop:20,
       backgroundColor: '#FFF'
     },
-    
+
     page: {
       flex: 1,
       height: 130,
@@ -98,9 +103,10 @@ const styles = StyleSheet.create(
      menuView: {
        flexDirection: 'row',
        marginTop: 10,
-       justifyContent: 'flex-start',
-       flexWrap: 'wrap',
-       marginTop: 10
+       alignItems: 'flex-start'
+     },
+     listView: {
+       paddingHorizontal: 20
      }
   }
 )

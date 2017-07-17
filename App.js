@@ -9,6 +9,7 @@ import Register from './src/components/Register/Register';
 import ForgetPassword from './src/components/ForgetPassword/ForgetPwd';
 import Brand from './src/components/Home/Brand';
 import Home from './src/components/Home/Home';
+import LoginForm from './src/components/Login/LoginForm';
 
 import { StackNavigator } from 'react-navigation';
 
@@ -60,6 +61,18 @@ const LittleFlowerApp = StackNavigator({
     screen: Register,
     navigationOptions: {
       title: 'Register',
+      headerTitleStyle :{
+        textAlign: 'center',alignSelf:'center'
+      },
+      headerStyle:{
+        backgroundColor:'#F8BBD0',
+      }
+    }
+  },
+  LoginForm: {
+    screen: LoginForm,
+    navigationOptions: {
+      title: 'Login',
       headerTitleStyle :{
         textAlign: 'center',alignSelf:'center'
       },

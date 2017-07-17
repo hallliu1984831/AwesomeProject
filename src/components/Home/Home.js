@@ -11,32 +11,26 @@ import Header from './Header';
 import Brand from './Brand';
 import MainScreen from './MainScreen';
 import LoginForm from '../Login/LoginForm';
+import Category from './Category';
+import Personal from './Personal';
 
 const HOME = 'home';
-const HOME_NORMAL = require('../../images/tabs/home_normal.png');
-const HOME_FOCUS = require('../../images/tabs/home_focus.png');
+const HOME_IMAGE = require('../../images/tabs/home.png');
 const CATEGORY = 'category';
-const CATEGORY_NORMAL = require('../../images/tabs/category_normal.png');
-const CATEGORY_FOCUS = require('../../images/tabs/category_focus.png');
-const FAXIAN = 'faxian';
-const FAXIAN_NORMAL = require('../../images/tabs/faxian_normal.png');
-const FAXIAN_FOCUS = require('../../images/tabs/faxian_focus.png');
-const CART = 'cart';
-const CART_NORMAL = require('../../images/tabs/cart_normal.png');
-const CART_FOCUS = require('../../images/tabs/cart_focus.png');
+const CATEGORY_IMAGE = require('../../images/tabs/category.png');
+const SEARCH = 'search';
+const SEARCH_IMAGE = require('../../images/tabs/search.png');
 const PERSONAL = 'personal';
-const PERSONAL_NORMAL = require('../../images/tabs/personal_normal.png');
-const PERSONAL_FOCUS = require('../../images/tabs/personal_focus.png');
+const PERSONAL_IMAGE = require('../../images/tabs/personal.png');
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {selectedTab: HOME, showPage: false};
-
-    // Toggle the state every second
+    // refresh the state after timeout by change welcome page to main page
     setTimeout(() => {
       this.setState({ showPage: true });
-    }, 5000);
+    }, 4000);
   }
   _renderTabItem(img, selectedImg, tag, childView) {
       return (
@@ -72,11 +66,10 @@ export default class Main extends Component {
         <View style={styles.mainContainer}>
           <Header />
           <TabNavigator tabBarStyle={styles.tab}>
-          {this._renderTabItem(HOME_NORMAL, HOME_FOCUS, HOME, <MainScreen />)}
-          {this._renderTabItem(CATEGORY_NORMAL, CATEGORY_FOCUS, CATEGORY, this._createChildView(CATEGORY))}
-          {this._renderTabItem(FAXIAN_NORMAL, FAXIAN_FOCUS, FAXIAN, this._createChildView(FAXIAN))}
-          {this._renderTabItem(CART_NORMAL, CART_FOCUS, CART, this._createChildView(CART))}
-          {this._renderTabItem(PERSONAL_NORMAL, PERSONAL_FOCUS, PERSONAL, <LoginForm navigation={this.props.navigation} />)}
+          {this._renderTabItem(HOME_IMAGE, HOME_IMAGE, HOME, <MainScreen />)}
+          {this._renderTabItem(CATEGORY_IMAGE, CATEGORY_IMAGE, CATEGORY, <Category />)}
+          {this._renderTabItem(SEARCH_IMAGE, SEARCH_IMAGE, SEARCH, this._createChildView(SEARCH))}
+          {this._renderTabItem(PERSONAL_IMAGE, PERSONAL_IMAGE, PERSONAL, <Personal navigation={this.props.navigation} />)}
           </TabNavigator>
         </View>
       )
@@ -85,7 +78,7 @@ export default class Main extends Component {
         <View style={styles.mainContainer}>
           <View style={styles.logoContainer}>
             <Image style={styles.logo} source={require('../../images/logo.jpg')} />
-            <Text style={styles.title}>Little Flower Kid</Text>
+            <Text style={styles.title}>Little Flower</Text>
             </View>
         </View>
       )
@@ -101,12 +94,12 @@ const styles = StyleSheet.create({
     logoContainer: {
       alignItems: 'center',
       flexGrow:1,
-      backgroundColor: '#F8BBD0',
+      backgroundColor: '#FFF',
       justifyContent: 'center'
     },
     logo: {
-      width:200,
-      height:200,
+      width:100,
+      height:100,
       borderRadius:50
     },
     title: {
@@ -119,14 +112,14 @@ const styles = StyleSheet.create({
       opacity:0.9
     },
     tab: {
-      height: 60,
-      backgroundColor: '#333333',
+      height: 50,
+      backgroundColor: '#FFF',
       alignItems: 'center',
       justifyContent: 'center'
     },
     tabIcon: {
       width: 30,
-      height: 35,
+      height: 30,
       resizeMode: 'stretch',
       marginTop: 10
     }
